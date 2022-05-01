@@ -28,7 +28,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        ref: main
+        #ref: main
 
     ## gradle caching
     - name: Gradle Caching
@@ -42,9 +42,9 @@ jobs:
           ${{ runner.os }}-gradle-
         
     ## make application-dev.properties
-    - uses: actions/checkout@v3
-      with:
-        ref: main
+#    - uses: actions/checkout@v3
+#      with:
+#        ref: main
     - name: make application-dev.properties
       run: |
         echo "ls -a . & pwd"
@@ -60,15 +60,8 @@ jobs:
         ls -a .
 
         echo "---------------------------------------"
-        cd resource
+        cd resources
         ls -a .
-
-
-        echo "mkdir & ls -a . & pwd"
-        mkdir -p ./src/main/resource
-        cd ./src/main/resource
-        ls -a .
-        pwd
 
         echo "touch & copy"
         touch ./application-dev.properties
