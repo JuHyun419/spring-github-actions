@@ -49,8 +49,8 @@ jobs:
         pwd
 
         echo "mkdir & ls -a . & pwd"
-        mkdir -p ./src/main/resource/profiles
-        cd ./src/main/resource/profiles
+        mkdir -p ./src/main/resource
+        cd ./src/main/resource
         ls -a .
         pwd
 
