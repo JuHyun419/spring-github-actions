@@ -28,6 +28,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+        ref: main
 
     ## gradle caching
     - name: Gradle Caching
@@ -42,6 +43,8 @@ jobs:
         
     ## make application-dev.properties
     - uses: actions/checkout@v3
+      with:
+        ref: main
     - name: make application-dev.properties
       run: |
         echo "ls -a . & pwd"
@@ -68,10 +71,14 @@ jobs:
       env:
         TEST: ${{ secrets.TEST }}
 
+    ## gradle build
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-      with:
-        arguments: build
+      run: ./gradlew bootJar -x test
+
+#    - name: Build with Gradle
+#      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+#      with:
+#        arguments: build
 
     - name: check jar file
       run: |
