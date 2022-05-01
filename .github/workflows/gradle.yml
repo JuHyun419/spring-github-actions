@@ -51,6 +51,19 @@ jobs:
         ls -a .
         pwd
 
+        echo "---------------------------------------"
+        cd src
+        ls -a .
+
+        echo "---------------------------------------"
+        cd main
+        ls -a .
+
+        echo "---------------------------------------"
+        cd resource
+        ls -a .
+
+
         echo "mkdir & ls -a . & pwd"
         mkdir -p ./src/main/resource
         cd ./src/main/resource
